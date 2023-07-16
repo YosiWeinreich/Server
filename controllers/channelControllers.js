@@ -38,7 +38,8 @@ exports.getValByDevAndCh = async (req, res) => {
   try {
     const { dev, ch } = req.params;
     const val = await channelService.getValByDevAndCh(dev, ch);
-    res.status(200).json({ val });
+    res.status(200).send(val.valueOf(val).toString())
+    // res.status(200).json({ val });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: error.message });
